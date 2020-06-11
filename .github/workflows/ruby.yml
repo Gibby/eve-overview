@@ -21,3 +21,5 @@ jobs:
     - uses: ruby/setup-ruby@v1
     - run: bundle install
     - run: bundle exec rake
+    - run: env
+    - run: ls
