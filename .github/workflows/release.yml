@@ -15,9 +15,12 @@ jobs:
         id: checkout
         uses: actions/checkout@v2
 
+      - name: Ruby
+        id: ruby
+        uses: ruby/setup-ruby@v1
+
       - name: Build
         id: build
-        uses: ruby/setup-ruby@v1
         env:
           VERSION: ${{ github.ref }}
         run: |
@@ -25,7 +28,6 @@ jobs:
           bundle exec rake &&
           ls Overview &&
           zip -r eve-overview-${VERSION}.zip Overview/
-
 
       - name: Create Release
         id: create_release
